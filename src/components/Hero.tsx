@@ -88,7 +88,7 @@ const Hero = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1 group">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg">📍</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg opacity-100 pointer-events-none" style={{ filter: 'none' }}>📍</span>
                   <Input
                     type="text"
                     placeholder="Enter Your Zip Code"
