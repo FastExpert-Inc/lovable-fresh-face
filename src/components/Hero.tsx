@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, Zap, Clock, Users } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import houseImage from "@/assets/house-image.png";
 
@@ -36,48 +36,62 @@ const Hero = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 via-accent/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-secondary/5 via-primary/5 to-transparent rounded-full blur-3xl" />
+      </div>
+
       {/* Navigation */}
-      <nav className="container mx-auto px-4 py-8">
-        <div>
-          <h2 className="text-2xl font-bold">
-            <span className="text-secondary">BSell</span>
-            <span className="text-primary"> Real Estate Agents</span>
+      <nav className="container mx-auto px-4 py-8 lg:py-10">
+        <div className="animate-fade-in">
+          <h2 className="text-2xl lg:text-3xl font-display font-bold">
+            <span className="bg-gradient-to-r from-secondary via-secondary to-primary bg-clip-text text-transparent">
+              BSell
+            </span>
+            <span className="text-foreground"> Real Estate Agents</span>
           </h2>
-          <p className="text-sm text-muted-foreground mt-1">Presented by FastExpert</p>
+          <p className="text-sm lg:text-base text-muted-foreground mt-1.5 font-medium">
+            Presented by FastExpert
+          </p>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+      <main className="flex-1 container mx-auto px-4 pb-12 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-10 animate-fade-in">
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground">
-              Find Top Selling
-              <br />
-              Real Estate Agents
-            </h1>
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] tracking-tight">
+                <span className="text-foreground">Find Top Selling</span>
+                <br />
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                  Real Estate Agents
+                </span>
+              </h1>
+            </div>
 
             {/* Search Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
-                <div className="relative flex-1">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <div className="relative flex-1 group">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-primary" />
                   <Input
                     type="text"
                     placeholder="Enter Your Zip Code"
                     value={zipCode}
                     onChange={(e) => setZipCode(e.target.value)}
-                    className="pl-11 h-14 text-base bg-background border-2 focus:border-primary"
+                    className="pl-12 h-14 text-base bg-background/60 backdrop-blur-sm border-2 border-border hover:border-primary/30 focus:border-primary transition-all shadow-lg shadow-primary/5"
                     maxLength={5}
                   />
                 </div>
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="h-14 px-10 text-base font-semibold whitespace-nowrap"
+                  className="h-14 px-10 text-base font-semibold whitespace-nowrap bg-gradient-to-r from-primary to-accent hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-primary/20"
                 >
                   Continue
                 </Button>
@@ -85,27 +99,33 @@ const Hero = () => {
             </form>
 
             {/* Features List */}
-            <div className="space-y-4 pt-4">
-              <div className="flex gap-3">
-                <div className="w-1 bg-primary rounded-full flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">Fast & Easy</h3>
+            <div className="space-y-6 pt-4">
+              <div className="flex gap-4 items-start group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Zap className="w-5 h-5 text-primary" />
+                </div>
+                <div className="pt-2">
+                  <h3 className="font-display font-bold text-lg mb-1 text-foreground">Fast & Easy</h3>
                 </div>
               </div>
               
-              <div className="flex gap-3">
-                <div className="w-1 bg-primary rounded-full flex-shrink-0" />
-                <div>
-                  <p className="text-muted-foreground">
+              <div className="flex gap-4 items-start group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/10 to-secondary/10 border border-accent/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Clock className="w-5 h-5 text-accent" />
+                </div>
+                <div className="pt-2">
+                  <p className="text-muted-foreground leading-relaxed">
                     Get connected to agents in less than 24 hours.
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3">
-                <div className="w-1 bg-primary rounded-full flex-shrink-0" />
-                <div>
-                  <p className="text-muted-foreground">
+              <div className="flex gap-4 items-start group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/10 to-primary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Users className="w-5 h-5 text-secondary" />
+                </div>
+                <div className="pt-2">
+                  <p className="text-muted-foreground leading-relaxed">
                     We'll send multiple top performing agents for you to choose from.
                   </p>
                 </div>
@@ -114,15 +134,41 @@ const Hero = () => {
           </div>
 
           {/* Right Image */}
-          <div className="relative animate-fade-in lg:animate-scale-in">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative animate-scale-in lg:order-last order-first">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-border">
+              {/* Gradient Overlay on Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 z-10" />
+              
               <img
                 src={houseImage}
                 alt="Beautiful red house with green lawn"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
+              
+              {/* Floating Badge */}
+              <div className="absolute top-6 left-6 z-20 animate-fade-in">
+                <div className="bg-background/95 backdrop-blur-md rounded-2xl px-5 py-3 shadow-xl border border-border">
+                  <p className="text-sm font-semibold text-foreground">
+                    Top Rated Agents
+                  </p>
+                  <div className="flex gap-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-4 h-4 text-secondary fill-secondary"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-secondary to-primary rounded-full blur-2xl opacity-30 -z-10" />
+            <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full blur-2xl opacity-20 -z-10" />
           </div>
         </div>
       </main>
