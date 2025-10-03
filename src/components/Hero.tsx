@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Zap, Clock, Users } from "lucide-react";
+import { Search, Zap, Clock, Users, Home } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import aerialNeighborhood from "@/assets/aerial-neighborhood.jpg";
 import redHouse from "@/assets/red-house.jpg";
@@ -51,15 +51,20 @@ const Hero = () => {
       {/* Navigation */}
       <nav className="container mx-auto px-4 py-8 lg:py-10">
         <div className="animate-fade-in">
-          <h2 className="text-2xl lg:text-3xl font-display font-bold">
-            <span className="bg-gradient-to-r from-secondary via-secondary to-primary bg-clip-text text-transparent">
-              BSell
-            </span>
-            <span className="text-foreground"> Real Estate Agents</span>
-          </h2>
-          <p className="text-sm lg:text-base text-muted-foreground mt-1.5 font-medium">
-            Presented by FastExpert
-          </p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md">
+              <Home className="w-5 h-5 lg:w-6 lg:h-6 text-primary-foreground" strokeWidth={2.5} />
+            </div>
+            <div>
+              <h2 className="text-xl lg:text-2xl font-display font-bold tracking-tight">
+                <span className="text-foreground">BSell</span>
+                <span className="text-muted-foreground font-normal"> Real Estate Agents</span>
+              </h2>
+              <p className="text-xs lg:text-sm text-muted-foreground font-medium">
+                Presented by FastExpert
+              </p>
+            </div>
+          </div>
         </div>
       </nav>
 
