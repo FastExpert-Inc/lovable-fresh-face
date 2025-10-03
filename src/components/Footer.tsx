@@ -1,36 +1,36 @@
 const Footer = () => {
   return (
-    <footer className="bg-muted/30 border-t">
+    <footer className="border-t bg-background">
       <div className="container mx-auto px-4 py-8">
-        <nav className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+        <nav className="flex flex-wrap justify-center gap-4 text-sm">
           <a 
             href="#" 
-            className="hover:text-primary transition-colors hover:underline underline-offset-4"
+            className="text-primary hover:underline underline-offset-4 transition-colors"
           >
             About
           </a>
+          <span className="text-muted-foreground">|</span>
           <a 
             href="#" 
-            className="hover:text-primary transition-colors hover:underline underline-offset-4"
+            className="text-primary hover:underline underline-offset-4 transition-colors"
           >
             Contact Us
           </a>
+          <span className="text-muted-foreground">|</span>
           <a 
             href="#" 
-            className="hover:text-primary transition-colors hover:underline underline-offset-4"
+            className="text-primary hover:underline underline-offset-4 transition-colors"
           >
             Terms
           </a>
+          <span className="text-muted-foreground">|</span>
           <a 
             href="#" 
-            className="hover:text-primary transition-colors hover:underline underline-offset-4"
+            className="text-primary hover:underline underline-offset-4 transition-colors"
           >
             Privacy
           </a>
         </nav>
-        <p className="text-center text-xs text-muted-foreground mt-6">
-          © {new Date().getFullYear()} BSell Real Estate Agents. All rights reserved.
-        </p>
       </div>
     </footer>
   );

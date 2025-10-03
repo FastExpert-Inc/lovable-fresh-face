@@ -1,20 +1,29 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Shield, CheckCircle, Star } from "lucide-react";
+import { Search } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import houseImage from "@/assets/house-image.png";
 
 const Hero = () => {
-  const [location, setLocation] = useState("");
+  const [zipCode, setZipCode] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!location.trim()) {
+    if (!zipCode.trim()) {
       toast({
-        title: "Location required",
-        description: "Please enter your location to continue.",
+        title: "Zip code required",
+        description: "Please enter your zip code to continue.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!/^\d{5}$/.test(zipCode)) {
+      toast({
+        title: "Invalid zip code",
+        description: "Please enter a valid 5-digit zip code.",
         variant: "destructive",
       });
       return;
@@ -22,95 +31,97 @@ const Hero = () => {
 
     toast({
       title: "Searching...",
-      description: `Finding top realtors in ${location}`,
+      description: `Finding top agents in ${zipCode}`,
     });
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navigation */}
-      <nav className="container mx-auto px-4 py-6">
-        <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
-          <Shield className="w-4 h-4 mr-2" />
-          Verified Network
-        </Badge>
+      <nav className="container mx-auto px-4 py-8">
+        <div>
+          <h2 className="text-2xl font-bold">
+            <span className="text-secondary">BSell</span>
+            <span className="text-primary"> Real Estate Agents</span>
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">Presented by FastExpert</p>
+        </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="max-w-4xl mx-auto text-center space-y-12 animate-fade-in">
-          {/* Main Heading */}
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Top Selling Realtors
+      <main className="flex-1 container mx-auto px-4 py-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in">
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground">
+              Find Top Selling
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                of 2025
-              </span>
+              Real Estate Agents
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Connect with Award-Winning Real Estate Experts
-            </p>
-            <p className="text-base text-muted-foreground max-w-xl mx-auto">
-              Get matched with top-performing realtors in your area who have proven track records of successful sales and satisfied clients.
-            </p>
-          </div>
 
-          {/* Stats Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in-up">
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-6 border border-primary/20 backdrop-blur-sm">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
-              <div className="text-sm font-medium text-foreground uppercase tracking-wide">Success Rate</div>
-            </div>
-            <div className="bg-gradient-to-br from-accent/10 to-secondary/10 rounded-2xl p-6 border border-accent/20 backdrop-blur-sm">
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">24hr</div>
-              <div className="text-sm font-medium text-foreground uppercase tracking-wide">Response Time</div>
-            </div>
-            <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl p-6 border border-secondary/20 backdrop-blur-sm">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">5000+</div>
-              <div className="text-sm font-medium text-foreground uppercase tracking-wide">Happy Clients</div>
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="space-y-6 animate-scale-in">
-            <h2 className="text-2xl md:text-3xl font-bold">Find Your Perfect Realtor Match</h2>
-            <p className="text-muted-foreground">Enter your location to see top-rated agents near you</p>
-            
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+            {/* Search Form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
-                <Input
-                  type="text"
-                  placeholder="Enter your location (city or zip code)"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  className="flex-1 h-14 text-lg bg-background border-2 focus:border-primary shadow-sm"
-                />
+                <div className="relative flex-1">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Enter Your Zip Code"
+                    value={zipCode}
+                    onChange={(e) => setZipCode(e.target.value)}
+                    className="pl-11 h-14 text-base bg-background border-2 focus:border-primary"
+                    maxLength={5}
+                  />
+                </div>
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="h-14 px-8 text-lg font-semibold group bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all"
+                  className="h-14 px-10 text-base font-semibold whitespace-nowrap"
                 >
-                  Find My Top Realtors Now
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Continue
                 </Button>
               </div>
             </form>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center gap-6 pt-6">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="font-medium">100% Free Service</span>
+            {/* Features List */}
+            <div className="space-y-4 pt-4">
+              <div className="flex gap-3">
+                <div className="w-1 bg-primary rounded-full flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-1">Fast & Easy</h3>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Shield className="w-5 h-5 text-accent" />
-                <span className="font-medium">Verified Credentials</span>
+              
+              <div className="flex gap-3">
+                <div className="w-1 bg-primary rounded-full flex-shrink-0" />
+                <div>
+                  <p className="text-muted-foreground">
+                    Get connected to agents in less than 24 hours.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Star className="w-5 h-5 text-secondary" />
-                <span className="font-medium">No Obligation</span>
+
+              <div className="flex gap-3">
+                <div className="w-1 bg-primary rounded-full flex-shrink-0" />
+                <div>
+                  <p className="text-muted-foreground">
+                    We'll send multiple top performing agents for you to choose from.
+                  </p>
+                </div>
               </div>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="relative animate-fade-in lg:animate-scale-in">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={houseImage}
+                alt="Beautiful red house with green lawn"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
             </div>
           </div>
         </div>
