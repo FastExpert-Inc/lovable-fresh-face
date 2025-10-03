@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Zap, Clock, Users } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import houseImage from "@/assets/house-image.png";
+import aerialNeighborhood from "@/assets/aerial-neighborhood.jpg";
+import redHouse from "@/assets/red-house.jpg";
 
 const Hero = () => {
   const [zipCode, setZipCode] = useState("");
@@ -37,10 +38,14 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Decorative Background Elements */}
+      {/* Aerial Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 via-accent/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-secondary/5 via-primary/5 to-transparent rounded-full blur-3xl" />
+        <img
+          src={aerialNeighborhood}
+          alt="Aerial view of neighborhood"
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
       </div>
 
       {/* Navigation */}
@@ -133,17 +138,28 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image - House in foreground with aerial background */}
           <div className="relative animate-scale-in lg:order-last order-first">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-border">
-              {/* Gradient Overlay on Image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 z-10" />
+            {/* Container with aerial background */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-border bg-gradient-to-br from-primary/5 to-accent/5">
+              {/* Aerial neighborhood as background within the card */}
+              <div className="absolute inset-0">
+                <img
+                  src={aerialNeighborhood}
+                  alt="Aerial neighborhood view"
+                  className="w-full h-full object-cover opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
+              </div>
               
-              <img
-                src={houseImage}
-                alt="Beautiful red house with green lawn"
-                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
-              />
+              {/* Red house as foreground */}
+              <div className="relative z-10 p-8 lg:p-12">
+                <img
+                  src={redHouse}
+                  alt="Beautiful red house"
+                  className="w-full h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-700"
+                />
+              </div>
               
               {/* Floating Badge */}
               <div className="absolute top-6 left-6 z-20 animate-fade-in">
