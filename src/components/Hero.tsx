@@ -70,7 +70,7 @@ const Hero = () => {
           <div className="space-y-10 animate-fade-in">
             {/* Main Heading */}
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] tracking-tight">
+              <h1 className="text-3xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] tracking-tight">
                 <span className="text-foreground">Find Top Selling</span>
                 <br />
                 <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
