@@ -69,8 +69,8 @@ const Hero = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 container mx-auto px-4 pb-12 lg:pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+      <main className="flex-1 container mx-auto px-4 flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto w-full">
           {/* Left Content */}
           <div className="space-y-10 animate-fade-in">
             {/* Main Heading */}
