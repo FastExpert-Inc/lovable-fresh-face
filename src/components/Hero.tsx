@@ -88,13 +88,13 @@ const Hero = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1 group">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg opacity-100 pointer-events-none" style={{ filter: 'none' }}>📍</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg opacity-100 pointer-events-none z-10 text-muted-foreground" style={{ filter: 'none', transform: 'translateY(-50%) translateZ(0)' }}>📍</span>
                   <Input
                     type="text"
                     placeholder="Enter Your Zip Code"
                     value={zipCode}
                     onChange={(e) => setZipCode(e.target.value)}
-                    className="pl-12 h-14 text-base bg-background/60 backdrop-blur-sm border-2 border-border hover:border-primary/30 focus:border-primary transition-all shadow-lg shadow-primary/5"
+                    className="relative z-0 pl-12 h-14 text-base bg-background/60 backdrop-blur-sm border-2 border-border hover:border-primary/30 focus:border-primary transition-all shadow-lg shadow-primary/5"
                     maxLength={5}
                   />
                 </div>
