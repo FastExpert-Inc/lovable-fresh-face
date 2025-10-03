@@ -49,7 +49,7 @@ const Hero = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="container mx-auto px-4 py-8 lg:py-10">
+      <nav className="container mx-auto px-4 py-4 lg:py-6">
         <div className="animate-fade-in">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md">
@@ -69,13 +69,13 @@ const Hero = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 container mx-auto px-4 flex items-center">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto w-full">
+      <main className="flex-1 container mx-auto px-4 py-4 lg:py-8 flex items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto w-full">
           {/* Left Content */}
           <div className="space-y-10 animate-fade-in">
             {/* Main Heading */}
-            <div className="space-y-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-[1.1] tracking-tight">
+            <div className="space-y-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold leading-[1.1] tracking-tight">
                 <span className="text-foreground">Find Top Selling</span>
                 <br />
                 <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
@@ -109,7 +109,7 @@ const Hero = () => {
             </form>
 
             {/* Features List */}
-            <div className="space-y-6 pt-4">
+            <div className="space-y-4 pt-2">
               <div className="flex gap-4 items-start group">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Zap className="w-5 h-5 text-primary" />
