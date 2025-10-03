@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Zap, Clock, Users, Home } from "lucide-react";
+import { MapPin, Zap, Clock, Users, Home } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import aerialNeighborhood from "@/assets/aerial-neighborhood.jpg";
 import redHouse from "@/assets/red-house.jpg";
@@ -88,7 +88,7 @@ const Hero = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1 group">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-primary" />
+                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-primary" />
                   <Input
                     type="text"
                     placeholder="Enter Your Zip Code"
