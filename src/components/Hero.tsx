@@ -118,7 +118,7 @@ const Hero = () => {
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
                 <div className="pt-2">
-                  <h3 className="font-display font-bold text-lg mb-1 text-foreground">Fast & Easy</h3>
+                  <p className="text-muted-foreground leading-relaxed">Fast & Easy</p>
                 </div>
               </div>
 
