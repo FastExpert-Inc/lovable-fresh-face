@@ -11,7 +11,7 @@ const Hero = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!zipCode.trim()) {
       toast({
         title: "Zip code required",
@@ -60,9 +60,7 @@ const Hero = () => {
                 <span className="text-foreground">BSell</span>
                 <span className="text-muted-foreground font-normal"> Real Estate Agents</span>
               </h2>
-              <p className="text-xs lg:text-sm text-muted-foreground font-medium">
-                Presented by FastExpert
-              </p>
+              <p className="text-xs lg:text-sm text-muted-foreground font-medium">Presented by FastExpert</p>
             </div>
           </div>
         </div>
@@ -88,7 +86,12 @@ const Hero = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1 group">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg opacity-100 pointer-events-none z-10 text-muted-foreground" style={{ filter: 'none', transform: 'translateY(-50%) translateZ(0)' }}>📍</span>
+                  <span
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-lg opacity-100 pointer-events-none z-10 text-muted-foreground"
+                    style={{ filter: "none", transform: "translateY(-50%) translateZ(0)" }}
+                  >
+                    📍
+                  </span>
                   <Input
                     type="text"
                     placeholder="Enter Your Zip Code"
@@ -98,9 +101,9 @@ const Hero = () => {
                     maxLength={5}
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="h-14 px-10 text-base font-semibold whitespace-nowrap bg-gradient-to-r from-primary to-accent hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-primary/20"
                 >
                   Continue
@@ -118,10 +121,10 @@ const Hero = () => {
                   <h3 className="font-display font-bold text-lg mb-1 text-foreground">Fast & Easy</h3>
                 </div>
               </div>
-              
+
               <div className="flex gap-4 items-start group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/10 to-secondary/10 border border-accent/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <Clock className="w-5 h-5 text-accent" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Clock className="w-5 h-5 text-primary" />
                 </div>
                 <div className="pt-2">
                   <p className="text-muted-foreground leading-relaxed">
@@ -131,8 +134,8 @@ const Hero = () => {
               </div>
 
               <div className="flex gap-4 items-start group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/10 to-primary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <Users className="w-5 h-5 text-secondary" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Users className="w-5 h-5 text-primary" />
                 </div>
                 <div className="pt-2">
                   <p className="text-muted-foreground leading-relaxed">
@@ -156,7 +159,7 @@ const Hero = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
               </div>
-              
+
               {/* Red house as foreground */}
               <div className="relative z-10 p-8 lg:p-12">
                 <img
@@ -165,20 +168,14 @@ const Hero = () => {
                   className="w-full h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              
+
               {/* Floating Badge */}
               <div className="absolute top-6 left-6 z-20 animate-fade-in">
                 <div className="bg-background/95 backdrop-blur-md rounded-2xl px-5 py-3 shadow-xl border border-border">
-                  <p className="text-sm font-semibold text-foreground">
-                    Top Rated Agents
-                  </p>
+                  <p className="text-sm font-semibold text-foreground">Top Rated Agents</p>
                   <div className="flex gap-1 mt-1">
                     {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-4 h-4 text-secondary fill-secondary"
-                        viewBox="0 0 20 20"
-                      >
+                      <svg key={i} className="w-4 h-4 text-secondary fill-secondary" viewBox="0 0 20 20">
                         <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                       </svg>
                     ))}
